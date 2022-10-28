@@ -1,5 +1,6 @@
 
-def input_float(msg: str, char: str):
+# float value input
+def input_float(msg='Enter the float value', char='variable') -> float:
     while True:
         try:
             return float(input(msg))
@@ -9,7 +10,10 @@ def input_float(msg: str, char: str):
 
 
 # choose task
-def task_choose():
+def task_choose() -> int:
+    """:return:  task number
+    """
+
     while True:
         match input(
             f'\tEnter the task number (1, 2):\n'
@@ -33,6 +37,8 @@ def task_choose():
 
 # choose option in task
 def option_choose():
+    """:return: option task
+    """
     while True:
         match input(
             f'\tEnter the option number (1, 4):\n'
@@ -54,24 +60,31 @@ def option_choose():
                 continue
 
 
+# in this func complete the option choice
 def task_1():
     try:
-        task = option_choose()
+        option_choose()
     finally:
-        print('\tEnd of Task 1.')
+        print(f'\tEnd of Task 1')
 
 
+# in this func complete the option choice
 def task_2():
-    pass
+    try:
+        option_choose()
+    finally:
+        print(f'\tEnd of Task 2')
 
 
 def option_1():
 
+    # enter the variables
     a = input_float('Enter a value of a:\n', 'a')
     b = input_float('Enter a value of b:\n', 'b')
     c = input_float('Enter a value of c:\n', 'c')
     k = input_float('Enter a value of k:\n', 'k')
 
+    # example with checking for division by zero
     try:
         result = abs(
             (a**2/b**2 + c**2*a**2)
@@ -85,12 +98,15 @@ def option_1():
 
 
 def option_4():
+
+    # enter the variables
     a = input_float('Enter a value of a:\n', 'a')
     b = input_float('Enter a value of b:\n', 'b')
     c = input_float('Enter a value of c:\n', 'c')
     d = input_float('Enter a value of d:\n', 'd')
     f = input_float('Enter a value of f:\n', 'f')
 
+    # example with checking for division by zero
     try:
         result = abs(
             a - b*c*d**3 + (c**5 - a**2)/a + f**3 * (a-213)
@@ -101,4 +117,5 @@ def option_4():
         print(f'Result = {result}')
 
 
+# main
 task_choose()
