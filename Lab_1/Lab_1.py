@@ -1,6 +1,6 @@
 
 # float value input
-def input_float(msg='Enter the float value', char='variable') -> float:
+def input_float(msg='Enter the float value of', char='variable') -> float:
     while True:
         try:
             return float(input(msg))
@@ -9,74 +9,34 @@ def input_float(msg='Enter the float value', char='variable') -> float:
             continue
 
 
-# choose task
-def task_choose() -> int:
-    """:return:  task number
-    """
-
-    while True:
-        match input(
-            f'\tEnter the task number (1, 2):\n'
-            f'<Enter>/quit/exit to exit the program!\n'
-        ).lower().strip():
-            case '1':
-                task_1()
-                return 1
-            case '2':
-                task_2()
-                return 2
-
-            case '' | 'quit' | 'exit':  # how to exit program option
-                print('Closing the program.')
-                break
-            # default output, out of cases:
-            case _:
-                print(f'\tWrong task number of incorrect input. Try again!')
-                continue
-
-
-# choose option in task
-def option_choose():
-    """:return: option task
-    """
-    while True:
-        match input(
-            f'\tEnter the option number (1, 4):\n'
-            f'<Enter>/quit/exit to exit the program!\n'
-        ).lower().strip():
-            case '1':
-                option_1()
-                return 1
-            case '4':
-                option_4()
-                return 4
-
-            case '' | 'quit' | 'exit':  # how to exit program option
-                print('Closing the program.')
-                break
-            # default output, out of cases:
-            case _:
-                print(f'\tWrong task number of incorrect input. Try again!')
-                continue
+# choose func with exit option
+def choose(msg='Choose\n'): return input(msg).strip().lower()
 
 
 # in this func complete the option choice
 def task_1():
-    try:
-        option_choose()
-    finally:
-        print(f'\tEnd of Task 1')
+    while True:
+        match choose('Enter the option:\n'):
+            case '1':
+                task_1_option_1()
+                break
+            case '4':
+                task_1_option_4()
+                break
+            case '' | 'quit' | 'exit':
+                print('\tSTOP PROGRAM')
+                break
+            case _:
+                print(f'\tIncorrect Option choice. Try again!')
+                continue
 
 
 # in this func complete the option choice
 def task_2():
-    try:
-        option_choose()
-    finally:
-        print(f'\tEnd of Task 2')
+    pass
 
 
-def option_1():
+def task_1_option_1():
 
     # enter the variables
     a = input_float('Enter a value of a:\n', 'a')
@@ -94,10 +54,10 @@ def option_1():
     except ZeroDivisionError as err:
         print(f'Division by Zero: {err}')
     else:
-        print(f'Result = {result}')
+        print(f'\tResult = {result}')
 
 
-def option_4():
+def task_1_option_4():
 
     # enter the variables
     a = input_float('Enter a value of a:\n', 'a')
@@ -114,8 +74,18 @@ def option_4():
     except ZeroDivisionError as err:
         print(f'Division by Zero: {err}')
     else:
-        print(f'Result = {result}')
+        print(f'\tResult = {result}')
 
 
-# main
-task_choose()
+while True:
+    match choose('Enter a task Number:\n'):
+        case '1':
+            task_1()
+            break
+        # case '2': task_2()
+        case '' | 'quit' | 'exit':
+            print('\tSTOP PROGRAM')
+            break
+        case _:
+            print(f'\tIncorrect Task choice. Try again!')
+            continue
