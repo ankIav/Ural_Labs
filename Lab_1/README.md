@@ -6,5 +6,5 @@
 ---
 # Result:
 
-- the choice of task and option is made through functions in the following sequence: _task_choose()_ -> _task_num()_ -> _option_num()_
+- the choice of task and option is made through functions in the following sequence: _choose_ -> _task_num()_ -> _choose_ ->_option_num()_
 - for the correct input of the value, the function  is implemented _input_float()_
