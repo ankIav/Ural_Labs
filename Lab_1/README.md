@@ -62,6 +62,6 @@
 - If there are 2 elements in the middle at once, then you need to return the value of the second one:
 
       print('Option 4: mid =', numbers[len(numbers)//2])
-    *NOTE But if we need to get the value of the first one, then: (**_a_** is some iterable onj)
+    *NOTE But if we need to get the value of the first one, then: (**_a_** is some iterable obj)
 
       print(a[len(a)//2-1 if len(a) % 2 == 0 else len(a)//2])
